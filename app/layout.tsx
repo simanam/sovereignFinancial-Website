@@ -6,7 +6,19 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Sovereign Financial",
-  description: "Central Valley Mortgage Company.",
+  description:
+    "Sovereign Financial is a mortgage brokerage firm that provides expert advice, personalized mortgage solutions, and exceptional customer service. Our team of mortgage brokers is dedicated to helping you find the best mortgage rates and terms to suit your unique needs. Whether you are a first-time homebuyer, a seasoned investor, or looking to refinance, we are here to help you navigate the mortgage process and make your homeownership dreams a reality.",
+  openGraph: {
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/SFHomepage.png`, // URL relative to the public folder
+        width: 800, // Optional: specify image width
+        height: 600, // Optional: specify image height
+        alt: "Mortgage Experts", // Optional: provide an alt text for the image
+        type: "image/jpeg", // Optional: specify the MIME type of the image
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

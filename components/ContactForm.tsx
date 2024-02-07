@@ -22,14 +22,11 @@ const ContactForm: React.FC = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     console.log(data);
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbwFPvDZmsGRt3mroXa6ZpTylaqy8DkI8lQuRMCTkksDcbzV1zGTmrEK2n-94KpVaDLc/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          body: new URLSearchParams(data),
-        }
-      );
+      await fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL as string, {
+        method: "POST",
+        mode: "no-cors",
+        body: new URLSearchParams(data),
+      });
       console.log("Form submitted successfully");
       setIsSubmitted(true); // Update state to indicate submission success
       setSubmitMessage(
