@@ -2,11 +2,12 @@ import React from "react";
 import Button from "./Button";
 import { useRouter } from "next/navigation";
 interface HeroProps {
-  scrollToWhyUs?: () => void; // Function that scrolls to Why Us section
+  scrollToWhyUs?: () => void;
+  title: string; // Function that scrolls to Why Us section
   // Add scrollToCalc only if it is expected to be used by Hero
 }
 
-const CTACompo: React.FC<HeroProps> = ({ scrollToWhyUs }) => {
+const CTACompo: React.FC<HeroProps> = ({ scrollToWhyUs, title }) => {
   const router = useRouter();
 
   const defaultAction = () => {
@@ -24,7 +25,7 @@ const CTACompo: React.FC<HeroProps> = ({ scrollToWhyUs }) => {
       <div>
         <Button
           type="button"
-          title="Schedule a call"
+          title={title}
           variant="btn_yellow"
           onClick={scrollToWhyUs || defaultAction}
         />

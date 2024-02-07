@@ -38,10 +38,10 @@ export default function Home() {
       <Services />
       <Aboutus />
       <TrustedPartners />
-      <CtaSection scrollToWhyUs={scrollToWhyUs} />
+      <CtaSection scrollToWhyUs={scrollToWhyUs} title="Schedule a call" />
       <Testimonials />
       <WhyUs ref={whyUsRef} />
-      <CtaSection scrollToWhyUs={scrollToWhyUs} />
+      <CtaSection title="Contact Now" />
     </>
   );
 }
