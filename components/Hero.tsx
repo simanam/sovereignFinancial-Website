@@ -19,7 +19,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToWhyUs, scrollToCalc }) => {
 
   const { View } = useLottie(optionsLottie);
   return (
-    <section className="max-container padding-container flex flex-col gap-20 py-10 pb-24 md:gap-28 lg:py-10 xl:flex-col justify-center items-center">
+    <section className="max-container padding-container flex flex-col gap-20 py-24 pb-24 md:gap-28 lg:py-10 xl:flex-col justify-center items-center">
       <div className="relative z-20 flex  flex-col lg:mt-[80px] justify-center items-center">
         <Image
           src="/3dhome.png"

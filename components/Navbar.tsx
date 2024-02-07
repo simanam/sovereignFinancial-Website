@@ -14,12 +14,12 @@ const Navbar = () => {
     <nav className="sticky top-0 z-30 flexBetween max-container padding-container py-5 bg-opacity-90 backdrop-filter backdrop-blur-lg">
       <Link href="/" className="flex flex-row items-center gap-2">
         <Image src="/Logo-Icon.svg" alt="logo" width={40} height={40} />
-        <p className="font-poppins text-lg font-semibold text-gray-100">
+        <p className="font-poppins text-sm lg:text-lg font-semibold text-gray-100">
           Sovereign Financial
         </p>
       </Link>
 
-      <div className="flexCenter">
+      <div className=" hidden lg:flexCenter">
         <Button
           type="button"
           title="Contact Us"
