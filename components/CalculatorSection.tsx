@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import MortgageCalculator from "./MortgageCalculator";
+import { CalculatorData } from "../types/formTypes";
+import Graph from "./Graph";
 
 const CalculatorSection = React.forwardRef<HTMLDivElement>((props, ref) => {
+  // State to manage calculator visibility
+  const [showCalculator, setShowCalculator] = useState(true);
+  // State to store calculator data
+  const [calculatorData, setCalculatorData] = useState<CalculatorData | null>(
+    null
+  );
+
+  // Function to handle calculator submission and show graph
+  const handleCalculatorSubmit = (data: CalculatorData) => {
+    console.log(data, "csl sec");
+    setCalculatorData(data); // Assume data is the calculated result or relevant data for the graph
+    setShowCalculator(false); // Hide calculator and show graph
+  };
+
   return (
     <div
       ref={ref}
@@ -30,7 +46,11 @@ const CalculatorSection = React.forwardRef<HTMLDivElement>((props, ref) => {
         </p>
       </div>
       <div className="lg:p-10 p-2 rounded-2xl bg-blue-20 justify-center flex">
-        <MortgageCalculator />
+        {showCalculator ? (
+          <MortgageCalculator onFinalSubmit={handleCalculatorSubmit} />
+        ) : (
+          <Graph data={calculatorData} />
+        )}
       </div>
     </div>
   );

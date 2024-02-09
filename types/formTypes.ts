@@ -21,3 +21,16 @@ export type FAQItemProps = {
   question: string;
   answer: string;
 };
+
+export interface CalculatorData {
+  purchasePrice: number;
+  creditScore: string;
+  loanTerm: string[];
+  downPaymentAmount: number;
+  downPaymentPercentage: number;
+  interestRate: number;
+  name?: string;
+  email?: string;
+  phoneNumber?: string;
+  zipCode?: number; // Ensure this is consistent with your types
+}

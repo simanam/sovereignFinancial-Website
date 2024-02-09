@@ -22,7 +22,7 @@ const ContactPage = () => {
         </h2>
         <FAQList faqs={faqs} />
       </div>
-      <CtaSection />
+      <CtaSection title="Schedule Call Now" />
     </>
   );
 };

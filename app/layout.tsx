@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/SFHomepage.png`, // URL relative to the public folder
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/Homepagejpeg.jpg`, // URL relative to the public folder
         width: 800, // Optional: specify image width
         height: 600, // Optional: specify image height
         alt: "Mortgage Experts", // Optional: provide an alt text for the image

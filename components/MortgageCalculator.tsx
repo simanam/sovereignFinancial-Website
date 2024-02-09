@@ -1,17 +1,22 @@
-// components/MortgageCalculatorForm.tsx
-// @use client
 "use client";
 import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { MortgageFormData } from "../types/formTypes";
+import { MortgageFormData, CalculatorData } from "../types/formTypes";
 import Button from "./Button";
 
-const MortgageCalculator: React.FC = () => {
+interface MortgageCalculatorProps {
+  onFinalSubmit?: (data: CalculatorData) => void; // Adjust based on actual usage
+}
+
+const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
+  onFinalSubmit,
+}) => {
   const { control, handleSubmit, watch, register } =
     useForm<MortgageFormData>();
   const [formStage, setFormStage] = useState(1);
   const [downPaymentAmount, setDownPaymentAmount] = useState<number>(0);
   const [downPaymentPercentage, setDownPaymentPercentage] = useState<number>(0);
+  const [interestRate, setInterestRate] = useState<number>(6);
 
   const purchasePrice = watch("purchasePrice");
 
@@ -29,12 +34,21 @@ const MortgageCalculator: React.FC = () => {
 
   const onSubmit = (data: MortgageFormData) => {
     if (formStage === 1) {
-      // Move to the next stage without submitting the form
-      setFormStage(2);
+      setFormStage(2); // Move to the next stage
     } else {
-      // Final submission including all data
-      console.log(data);
-      // TODO: Implement API call here
+      // Prepare data for final submission
+      const dataToPass: CalculatorData = {
+        purchasePrice: data.purchasePrice,
+        creditScore: data.creditScore,
+        loanTerm: data.loanTerm,
+        downPaymentAmount,
+        downPaymentPercentage,
+        interestRate,
+        // Omit personal information if not needed for CalculatorData
+      };
+
+      // Ensure you're calling a prop or another function for final submission
+      if (onFinalSubmit) onFinalSubmit(dataToPass);
     }
   };
   const handleGoBack = () => {
@@ -61,6 +75,7 @@ const MortgageCalculator: React.FC = () => {
               Zip Code
             </label>
             <Controller
+              {...register("zipCode", { required: "Zip Code is required" })}
               name="zipCode"
               control={control}
               defaultValue={0}
@@ -82,6 +97,9 @@ const MortgageCalculator: React.FC = () => {
               Purchase Price
             </label>
             <Controller
+              {...register("purchasePrice", {
+                required: "Purchase Price is required",
+              })}
               name="purchasePrice"
               control={control}
               defaultValue={0}
@@ -136,6 +154,9 @@ const MortgageCalculator: React.FC = () => {
               Credit Score
             </label>
             <Controller
+              {...register("creditScore", {
+                required: "Credit Score is required",
+              })}
               name="creditScore"
               control={control}
               defaultValue=""
@@ -169,7 +190,9 @@ const MortgageCalculator: React.FC = () => {
                     <input
                       type="checkbox"
                       value={term}
-                      {...register("loanTerm")}
+                      {...register("loanTerm", {
+                        required: "Loan Term is required",
+                      })}
                       className="mr-2"
                     />
                     {term} years
