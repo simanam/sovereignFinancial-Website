@@ -11,12 +11,38 @@ const CalculatorSection = React.forwardRef<HTMLDivElement>((props, ref) => {
   const [calculatorData, setCalculatorData] = useState<CalculatorData | null>(
     null
   );
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
-  // Function to handle calculator submission and show graph
-  const handleCalculatorSubmit = (data: CalculatorData) => {
-    console.log(data, "csl sec");
-    setCalculatorData(data); // Assume data is the calculated result or relevant data for the graph
-    setShowCalculator(false); // Hide calculator and show graph
+  // // Function to handle calculator submission and show graph
+  // const handleCalculatorSubmit = (data: CalculatorData) => {
+  //   console.log(data, "csl sec");
+  //   setCalculatorData(data); // Assume data is the calculated result or relevant data for the graph
+  //   setShowCalculator(false); // Hide calculator and show graph
+  // };
+
+  const handleCalculatorSubmit = async (data: CalculatorData) => {
+    console.log(data);
+    setCalculatorData(data);
+    try {
+      await fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URI_M as string, {
+        method: "POST",
+        mode: "no-cors",
+        body: new URLSearchParams(data),
+      });
+      console.log("Form submitted successfully");
+      setIsSubmitted(true); // Update state to indicate submission success
+      setSubmitMessage(
+        "Thank you for contacting us, we will be in touch soon!"
+      ); // Set a success message
+      setShowCalculator(false);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setIsSubmitted(false);
+      setSubmitMessage(
+        "There was an error submitting the form. Please try again later."
+      ); // Set an error message
+    }
   };
 
   return (
@@ -51,6 +77,7 @@ const CalculatorSection = React.forwardRef<HTMLDivElement>((props, ref) => {
         ) : (
           <Graph data={calculatorData} />
         )}
+        {/* <Graph data={calculatorData} /> */}
       </div>
     </div>
   );

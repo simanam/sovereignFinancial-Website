@@ -41,22 +41,22 @@ const Footer = () => {
                     FAQs
                   </Link>
                 </li>
-                <li className="mb-1">
+                {/* <li className="mb-1">
                   <Link
                     href="/terms"
                     className="hover:text-blue-80 transition-colors"
                   >
                     Terms & Privacy
                   </Link>
-                </li>
-                <li className="mb-1">
+                </li> */}
+                {/* <li className="mb-1">
                   <Link
                     className="hover:text-blue-80 transition-colors"
                     href="/cookie-policy"
                   >
                     Cookie Policy
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
             {/* Column 2 */}
@@ -71,7 +71,7 @@ const Footer = () => {
             {/* Column 3 */}
             <div>
               <h3 className="text-xl font-semibold mb-2">Social</h3>
-              <ul>
+              {/* <ul>
                 <li className="mb-1">
                   {" "}
                   <Link
@@ -108,7 +108,7 @@ const Footer = () => {
                     LinkedIn
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>

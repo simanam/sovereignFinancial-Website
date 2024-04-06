@@ -29,7 +29,7 @@ const WhyUs = React.forwardRef<HTMLDivElement>((props, ref) => {
         />
       </div>
       <div className="">
-        <InlineWidget url="https://calendly.com/aman1381singh/30min?" />
+        <InlineWidget url="https://calendly.com/manraj-gu0/30min" />
       </div>
     </div>
   );

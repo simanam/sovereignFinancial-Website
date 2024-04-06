@@ -44,6 +44,10 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
         downPaymentAmount,
         downPaymentPercentage,
         interestRate,
+        name: data.name,
+        email: data.email,
+        phoneNumber: data.phoneNumber,
+        zipCode: data.zipCode,
         // Omit personal information if not needed for CalculatorData
       };
 
