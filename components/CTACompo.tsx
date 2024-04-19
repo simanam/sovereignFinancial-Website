@@ -13,7 +13,7 @@ const CTACompo: React.FC<HeroProps> = ({ scrollToWhyUs, title }) => {
   const defaultAction = () => {
     console.log("Default action executed");
     // For example, navigate to the contact page
-    router.push("/");
+    router.push("/contact");
   };
   return (
     <div className="flex flex-col gap-8 lg:flex-row justify-between p-6 lg:py-24 lg:px-16 rounded-2xl items-center w-full bg-opacity-90 bg-gradient-to-r from-blue-800 via-blue-900 to-blue-800">

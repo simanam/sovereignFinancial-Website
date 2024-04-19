@@ -17,6 +17,11 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
   const [downPaymentAmount, setDownPaymentAmount] = useState<number>(0);
   const [downPaymentPercentage, setDownPaymentPercentage] = useState<number>(0);
   const [interestRate, setInterestRate] = useState<number>(6);
+  const [isUserTyping, setIsUserTyping] = useState<{ [key: string]: boolean }>({
+    purchasePrice: false,
+    downPaymentAmount: false,
+    downPaymentPercentage: false,
+  });
 
   const purchasePrice = watch("purchasePrice");
 

@@ -71,16 +71,17 @@ const Footer = () => {
             {/* Column 3 */}
             <div>
               <h3 className="text-xl font-semibold mb-2">Social</h3>
-              {/* <ul>
+              <ul>
                 <li className="mb-1">
                   {" "}
                   <Link
                     className="hover:text-blue-80 transition-colors"
-                    href="/faqs"
+                    href="https://www.instagram.com/sovereign.financial"
                   >
                     Instagram
                   </Link>
                 </li>
+                {/*
                 <li className="mb-1">
                   {" "}
                   <Link
@@ -107,8 +108,8 @@ const Footer = () => {
                   >
                     LinkedIn
                   </Link>
-                </li>
-              </ul> */}
+                </li>*/}
+              </ul>
             </div>
           </div>
         </div>
@@ -116,11 +117,9 @@ const Footer = () => {
 
         {/* Legal section */}
         <div className="text-center text-gray-400 mt-8 text-sm">
-          © 2024 Sovereign Financial. All rights reserved. is registered in
-          England and Wales (09834953) with address c/o Throgmorton, 4th Floor,
-          Reading Bridge House, George St, Reading, Berkshire RG1 8LS, is
-          authorised and regulated by the Financial Conduct Authority and is on
-          the Financial Services Register (714987).
+          © 2024 Sovereign Financial. All Rights Reserved. Licensed by the
+          Department of Financial Protection and Innovation under the California
+          Residential Mortgage Lending Act. NMLS # 2511898
         </div>
       </div>
     </footer>

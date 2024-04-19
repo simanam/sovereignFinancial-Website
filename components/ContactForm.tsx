@@ -11,6 +11,7 @@ type FormValues = {
 
 const ContactForm: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
   const {
     register,
@@ -20,32 +21,38 @@ const ContactForm: React.FC = () => {
   } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    console.log(data);
     try {
-      await fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL as string, {
-        method: "POST",
-        mode: "no-cors",
-        body: new URLSearchParams(data),
-      });
-      console.log("Form submitted successfully");
-      setIsSubmitted(true); // Update state to indicate submission success
-      setSubmitMessage(
-        "Thank you for contacting us, we will be in touch soon!"
-      ); // Set a success message
-      reset(); // Reset the form fields
-      // Update UI to show success message
+      const res = await fetch("/api/contact", {
+        method: "POST", // Usually you need to specify the method explicitly for clarity.
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }); // Added the missing parenthesis and curly brace here
+      if (res.ok) {
+        reset(); // Reset the form fields
+        setSubmitMessage("Your message has been sent successfully!");
+        setIsSubmitted(true);
+      } else {
+        throw new Error("Failed to send message");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
       setIsSubmitted(false);
       setSubmitMessage(
         "There was an error submitting the form. Please try again later."
       ); // Set an error message
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className=" p-2 shadow-md w-full max-w-[450px] min-w-[350px] sm:min-w-[450px] min-h-[590px] flex flex-col justify-between  bg-white  border-8 border-gray-100 rounded-2xl">
-      {isSubmitted && (
+      {isLoading && (
+        <div className="text-center py-4 text-blue-600">Loading...</div>
+      )}
+      {isSubmitted && !isLoading && (
         <div className="text-center py-4 text-green-600">{submitMessage}</div>
       )}
       {!isSubmitted && (

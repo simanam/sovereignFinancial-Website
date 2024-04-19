@@ -25,10 +25,17 @@ const CalculatorSection = React.forwardRef<HTMLDivElement>((props, ref) => {
     console.log(data);
     setCalculatorData(data);
     try {
-      await fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URI_M as string, {
-        method: "POST",
-        mode: "no-cors",
-        body: new URLSearchParams(data),
+      // await fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URI_M as string, {
+      //   method: "POST",
+      //   mode: "no-cors",
+      //   body: new URLSearchParams(data),
+      // });
+      const res = await fetch("/api/calculator", {
+        method: "POST", // Usually you need to specify the method explicitly for clarity.
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       console.log("Form submitted successfully");
       setIsSubmitted(true); // Update state to indicate submission success
