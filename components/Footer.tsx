@@ -12,7 +12,7 @@ const Footer = () => {
             </h2>
             <p className="text-lg">More than mortgage.</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {/* Column 1 */}
             <div>
               <h3 className="text-xl font-semibold mb-2">Menu</h3>
@@ -109,6 +109,31 @@ const Footer = () => {
                     LinkedIn
                   </Link>
                 </li>*/}
+              </ul>
+            </div>
+
+            {/* New Column 4 */}
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Contact</h3>
+              <ul>
+                <li className="mb-1">
+                  <a
+                    href="https://maps.app.goo.gl/fwYb9C6DgguewdSj8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-80 transition-colors"
+                  >
+                    336 W Bedford Ave Suite 103, Fresno, CA 93728
+                  </a>
+                </li>
+                <li className="mb-1">
+                  <a
+                    href="mailto:manraj@sovereignfinances.com"
+                    className="hover:text-blue-80 transition-colors"
+                  >
+                    manraj@sovereignfinances.com
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
