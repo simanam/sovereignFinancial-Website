@@ -73,7 +73,7 @@ export const metadata: Metadata = {
         url: `${
           process.env.NEXT_PUBLIC_BASE_URL ||
           "https://www.sovereignfinances.com"
-        }/og-image.jpg`,
+        }/og-image.jpeg`,
         width: 1200,
         height: 630,
         alt: "Sovereign Financial - Expert Mortgage Solutions",
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     images: [
       `${
         process.env.NEXT_PUBLIC_BASE_URL || "https://www.sovereignfinances.com"
-      }/og-image.jpg`,
+      }/og-image.jpeg`,
     ],
   },
   metadataBase: new URL(
