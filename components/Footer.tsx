@@ -123,7 +123,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className="hover:text-blue-80 transition-colors"
                   >
-                    336 W Bedford Ave Suite 103, Fresno, CA 93728
+                    336 W Bedford Ave Suite 103, Fresno, CA 93711
                   </a>
                 </li>
                 <li className="mb-1">
