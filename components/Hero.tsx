@@ -19,39 +19,59 @@ const Hero: React.FC<HeroProps> = ({ scrollToWhyUs, scrollToCalc }) => {
 
   const { View } = useLottie(optionsLottie);
   return (
-    <section className="max-container padding-container flex flex-col gap-20 py-24 pb-24 md:gap-28 lg:py-10 xl:flex-col justify-center items-center">
+    <section
+      className="max-container padding-container flex flex-col gap-20 py-24 pb-24 md:gap-28 lg:py-10 xl:flex-col justify-center items-center relative"
+      style={{
+        backgroundImage: "url('/calihouse.jpg')",
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="absolute inset-0 backdrop-blur-sm bg-black/20"></div>
       <div className="relative z-20 flex  flex-col lg:mt-[80px] justify-center items-center">
-        <Image
+        {/* <Image
           src="/3dhome.png"
           alt="3dhome"
           width={50}
           height={50}
           className="absolute left-[10px] top-[-50px] w-10 lg:w-[50px]"
-        />
-        <h1 className="font-pt-serif font-bold text-5xl lg:text-6xl  text-gray-100 text-center">
+        /> */}
+        {/* <h1 className="font-pt-serif font-bold text-5xl lg:text-6xl  text-white text-center">
           Your Path to <span className="text-blue-80">Homeownership</span>{" "}
           Starts Here
+        </h1> */}
+        {/* <h1 className="font-pt-serif font-bold text-5xl lg:text-6xl text-white text-center leading-relaxed lg:leading-tight">
+          Your Path to{" "}
+          <span className="inline-block text-blue-80 bg-white px-2 py-1.5 rounded-md shadow-md my-1">
+            Homeownership
+          </span>{" "}
+          Starts Here
+        </h1> */}
+        <h1 className="font-pt-serif font-bold text-5xl lg:text-6xl text-white text-center leading-relaxed lg:leading-tight">
+          The Perfect{" "}
+          <span className="inline-block text-blue-80 bg-white px-2 py-1.5 rounded-md shadow-md my-1">
+            Mortgage Solution
+          </span>{" "}
+          for Your Dream Home
         </h1>
-        <p className="font-poppins mt-6 text-gray-30 text-center sm:max-w-[900px] leading-loose">
-          Unlock the Door to Your Dream Home with Tailored{" "}
-          <span className="p-1 bg-blue-80 text-gray-10">
-            Mortgage Solutions
-          </span>
-          . Fast, Transparent, and Personalized{" "}
-          <span className="">– Just for You.</span>
+        <p className="font-poppins mt-6 text-gray-10 text-center sm:max-w-[900px] leading-loose">
+          Fast, Transparent, and Personalized Experience{" "}
+          <span className="p-1 bg-blue-80 text-gray-10 text-lg font-semibold rounded">
+            – Just for You.
+          </span>{" "}
         </p>
 
         <div className="flex flex-col w-full gap-3 sm:flex-row justify-center my-11 ">
           <Button
             type="button"
             title="Calculate Rate"
-            variant="btn_yellow"
+            variant="btn_dark_white_outline"
             onClick={scrollToCalc}
           />
           <Button
             type="button"
             title="Schedule a call"
-            variant="btn_dark_black_outline"
+            variant="btn_yellow"
             onClick={scrollToWhyUs}
           />
         </div>

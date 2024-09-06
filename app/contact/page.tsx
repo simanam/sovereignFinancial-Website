@@ -1,30 +1,33 @@
-import React from "react";
-import FAQList from "@/components/FAQList";
-import faqs from "@/public/faqData.json";
-import CtaSection from "@/components/CtaSection";
-import ContactSection from "@/components/ContactSection";
-import type { Metadata } from "next";
+// app/sitemap/page.tsx
 
-export const metadata: Metadata = {
-  title: "Contact Us | Sovereign Financial",
-  description:
-    "Questions? Ready to start your mortgage journey? Contact Sovereign Financial today! Our team is here to provide you with expert advice, answer any queries, and guide you through every step of the mortgage process. Reach out via phone, email, or fill out our contact form for a swift response. Let’s make your dream home a reality together.",
-};
+import { format } from "date-fns";
+import { NextResponse } from "next/server";
 
-const ContactPage = () => {
-  return (
-    <>
-      <ContactSection />
+export async function GET() {
+  const baseUrl = "https://www.sovereignfinances.com";
 
-      <div className="max-container padding-container flex flex-col justify-center gap-8 mb-10 ">
-        <h2 className="font-pt-serif font-bold text-3xl lg:text-4xl  lg:text-left text-gray-100 text-center">
-          Frequently Asked Questions
-        </h2>
-        <FAQList faqs={faqs} />
-      </div>
-      <CtaSection title="Schedule Call Now" />
-    </>
-  );
-};
+  const staticPages = ["", "contact"];
 
-export default ContactPage;
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${staticPages
+      .map((page) => {
+        const url = `${baseUrl}/${page}`;
+        return `
+        <url>
+          <loc>${url}</loc>
+          <lastmod>${format(new Date(), "yyyy-MM-dd")}</lastmod>
+          <changefreq>monthly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      `;
+      })
+      .join("")}
+  </urlset>`;
+
+  return new NextResponse(sitemap, {
+    headers: {
+      "Content-Type": "application/xml",
+    },
+  });
+}

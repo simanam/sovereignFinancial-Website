@@ -4,7 +4,12 @@ type ButtonProps = {
   type: "button" | "submit";
   title: string;
   icon?: string;
-  variant?: "btn_yellow" | "btn_blue" | "btn_white" | "btn_dark_black_outline";
+  variant?:
+    | "btn_yellow"
+    | "btn_blue"
+    | "btn_white"
+    | "btn_dark_black_outline"
+    | "btn_dark_white_outline";
   onClick?: () => void;
 };
 

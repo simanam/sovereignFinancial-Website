@@ -38,6 +38,11 @@ const Aboutus = () => {
           our clients not only find a loan that suits their needs but also feel
           supported throughout their homeownership journey.
         </p>
+        <p className="font-poppins text-gray-700 text-base">
+          Proudly Serving{" "}
+          <span className="text-blue-80">Fresno, Madera, Bakersfield</span> and
+          surrounding areas.
+        </p>
       </div>
     </div>
   );
