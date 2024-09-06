@@ -49,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToWhyUs, scrollToCalc }) => {
         </h1> */}
         <h1 className="font-pt-serif font-bold text-5xl lg:text-6xl text-white text-center leading-relaxed lg:leading-tight">
           The Perfect{" "}
-          <span className="inline-block text-blue-80 bg-white px-2 py-1.5 rounded-md shadow-md my-1">
+          <span className="inline-block text-blue-80 bg-white px-1 py-1.5 rounded-md shadow-md  leading-none lg:leading-none">
             Mortgage Solution
           </span>{" "}
           for Your Dream Home
