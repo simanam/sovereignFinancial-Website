@@ -57,14 +57,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Sovereign Financial | Expert Mortgage Solutions",
+  title: "Sovereign Financial | Expert Mortgage Broker Located in Fresno, CA",
   description:
     "Sovereign Financial provides expert advice, personalized mortgage solutions, and exceptional customer service. Find the best mortgage rates and terms for your unique needs.",
   openGraph: {
     type: "website",
     url:
       process.env.NEXT_PUBLIC_BASE_URL || "https://www.sovereignfinances.com", // Default in case env is missing
-    title: "Sovereign Financial | Expert Mortgage Solutions",
+    title: "Sovereign Financial | Expert Mortgage Broker Located in Fresno, CA",
     description:
       "Find personalized mortgage solutions with Sovereign Financial. Expert advice and exceptional service for homebuyers and investors.",
     siteName: "Sovereign Financial",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sovereign Financial | Expert Mortgage Solutions",
+    title: "Sovereign Financial | Expert Mortgage Broker Located in Fresno, CA",
     description:
       "Find personalized mortgage solutions with Sovereign Financial. Expert advice and exceptional service for homebuyers and investors.",
     images: [
