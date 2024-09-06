@@ -76,7 +76,7 @@ export const metadata: Metadata = {
         }/og-image.jpeg`,
         width: 1200,
         height: 630,
-        alt: "Sovereign Financial - Expert Mortgage Solutions",
+        alt: "Sovereign Financial - Expert Mortgage Broker Located in Fresno, CA",
       },
     ],
   },
