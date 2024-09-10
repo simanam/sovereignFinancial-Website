@@ -1,55 +1,3 @@
-// import type { Metadata } from "next";
-
-// import "./globals.css";
-// import Navbar from "@/components/Navbar";
-// import Footer from "@/components/Footer";
-
-// export const metadata: Metadata = {
-//   title: "Sovereign Financial | Expert Mortgage Solutions",
-//   description:
-//     "Sovereign Financial provides expert advice, personalized mortgage solutions, and exceptional customer service. Find the best mortgage rates and terms for your unique needs.",
-//   openGraph: {
-//     type: "website",
-//     url: process.env.NEXT_PUBLIC_BASE_URL,
-//     title: "Sovereign Financial | Expert Mortgage Solutions",
-//     description:
-//       "Find personalized mortgage solutions with Sovereign Financial. Expert advice and exceptional service for homebuyers and investors.",
-//     siteName: "Sovereign Financial",
-//     images: [
-//       {
-//         url: `${process.env.NEXT_PUBLIC_BASE_URL}/og-image.jpg`,
-//         width: 1200,
-//         height: 630,
-//         alt: "Sovereign Financial - Expert Mortgage Solutions",
-//       },
-//     ],
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "Sovereign Financial | Expert Mortgage Solutions",
-//     description:
-//       "Find personalized mortgage solutions with Sovereign Financial. Expert advice and exceptional service for homebuyers and investors.",
-//     images: [`${process.env.NEXT_PUBLIC_BASE_URL}/og-image.jpg`],
-//   },
-// };
-
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//     <html lang="en">
-//       <body>
-//         <Navbar />
-//         <main className="relative overflow-hidden">{children}</main>
-
-//         <Footer />
-//       </body>
-//     </html>
-//   );
-// }
-
 import type { Metadata } from "next";
 
 import "./globals.css";
@@ -143,7 +91,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-DRLY9GW8G4"');
+              gtag('config', 'G-DRLY9GW8G4');
             `,
           }}
         />
