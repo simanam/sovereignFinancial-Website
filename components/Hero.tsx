@@ -77,7 +77,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToWhyUs, scrollToCalc }) => {
         </div>
         <div className="flex justify-center lg:justify-between w-[100%] mr-40px  mt-[-20px] lg:mt-[-60px]">
           <div className="w-[500px] h-[250px] hidden lg:block  rotate-45">
-            {View}
+            {/* {View} */}
           </div>
           <div className="w-[200px] h-[250px] right-[-100px] grid grid-cols-2 gap-2">
             <Image
