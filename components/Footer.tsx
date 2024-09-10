@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link"; // Import Link from Next.js
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -36,6 +37,14 @@ const Footer = () => {
                 <li className="mb-1">
                   <Link
                     className="hover:text-blue-80 transition-colors"
+                    href="/about"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li className="mb-1">
+                  <Link
+                    className="hover:text-blue-80 transition-colors"
                     href="/contact"
                   >
                     FAQs
@@ -63,17 +72,23 @@ const Footer = () => {
             <div>
               <h3 className="text-xl font-semibold mb-2">Our Services</h3>
               <ul>
-                <li className="mb-1">Buy a Home</li>
-                <li className="mb-1">Remortgage</li>
-                <li className="mb-1">Buy to Let</li>
+                <li className="mb-1">Mortgage </li>
+                <li className="mb-1">Refinance </li>
+                <li className="mb-1">Commercial/Investor Financing </li>
               </ul>
             </div>
             {/* Column 3 */}
             <div>
               <h3 className="text-xl font-semibold mb-2">Social</h3>
               <ul>
-                <li className="mb-1">
-                  {" "}
+                <li className="mb-1 flex items-center">
+                  <Image
+                    src="/insta.svg"
+                    alt="Instagram"
+                    width={16}
+                    height={16}
+                    className="mr-2"
+                  />
                   <Link
                     className="hover:text-blue-80 transition-colors"
                     href="https://www.instagram.com/sovereign.financial"
@@ -81,34 +96,37 @@ const Footer = () => {
                     Instagram
                   </Link>
                 </li>
-                {/*
-                <li className="mb-1">
-                  {" "}
+
+                <li className="mb-1 flex items-center">
+                  <Image
+                    src="/tik.svg"
+                    alt="TikTok"
+                    width={16}
+                    height={16}
+                    className="mr-2"
+                  />
                   <Link
                     className="hover:text-blue-80 transition-colors"
-                    href="/faqs"
+                    href="https://www.tiktok.com/@sovereign.financial"
                   >
-                    Twitter
+                    TikTok
                   </Link>
                 </li>
-                <li className="mb-1">
-                  {" "}
+                <li className="mb-1 flex items-center">
+                  <Image
+                    src="/face.svg"
+                    alt="Facebook"
+                    width={16}
+                    height={16}
+                    className="mr-2"
+                  />
                   <Link
                     className="hover:text-blue-80 transition-colors"
-                    href="/faqs"
+                    href="https://www.facebook.com/profile.php?id=61564664627152&mibextid=LQQJ4d"
                   >
                     Facebook
                   </Link>
                 </li>
-                <li className="mb-1">
-                  {" "}
-                  <Link
-                    className="hover:text-blue-80 transition-colors"
-                    href="/faqs"
-                  >
-                    LinkedIn
-                  </Link>
-                </li>*/}
               </ul>
             </div>
 
@@ -128,10 +146,10 @@ const Footer = () => {
                 </li>
                 <li className="mb-1">
                   <a
-                    href="mailto:manraj@sovereignfinances.com"
-                    className="hover:text-blue-80 transition-colors"
+                    href="mailto:info@sovereignfinances.com"
+                    className="hover:text-blue-80 transition-colors break-all text-sm"
                   >
-                    manraj@sovereignfinances.com
+                    info@sovereignfinances.com
                   </a>
                 </li>
               </ul>
@@ -144,7 +162,8 @@ const Footer = () => {
         <div className="text-center text-gray-400 mt-8 text-sm">
           © 2024 Sovereign Financial. All Rights Reserved. Licensed by the
           Department of Financial Protection and Innovation under the California
-          Residential Mortgage Lending Act. NMLS # 2511898
+          Residential Mortgage Lending Act. CA License Number # 60DBO-184734,
+          NMLS # 2511898
         </div>
       </div>
     </footer>

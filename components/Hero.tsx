@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToWhyUs, scrollToCalc }) => {
         backgroundSize: "cover",
       }}
     >
-      <div className="absolute inset-0 backdrop-blur-sm bg-black/20"></div>
+      <div className="absolute inset-0 backdrop-sm bg-white/60"></div>
       <div className="relative z-20 flex  flex-col lg:mt-[80px] justify-center items-center">
         {/* <Image
           src="/3dhome.png"
@@ -47,14 +47,14 @@ const Hero: React.FC<HeroProps> = ({ scrollToWhyUs, scrollToCalc }) => {
           </span>{" "}
           Starts Here
         </h1> */}
-        <h1 className="font-pt-serif font-bold text-5xl lg:text-6xl text-white text-center leading-relaxed lg:leading-tight">
+        <h1 className="font-pt-serif font-bold text-5xl lg:text-6xl text-gray-60 text-center ">
           The Perfect{" "}
-          <span className="inline-block text-blue-80 bg-white px-1 py-1.5 rounded-md shadow-md  leading-none lg:leading-none">
+          <span className="inline-block text-blue-80  px-1 py-1.5  ">
             Mortgage Solution
           </span>{" "}
           for Your Dream Home
         </h1>
-        <p className="font-poppins mt-6 text-gray-10 text-center sm:max-w-[900px] leading-loose">
+        <p className="font-poppins mt-6 text-gray-60 text-center sm:max-w-[900px] leading-loose">
           Fast, Transparent, and Personalized Experience{" "}
           <span className="p-1 bg-blue-80 text-gray-10 text-lg font-semibold rounded">
             – Just for You.
@@ -65,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToWhyUs, scrollToCalc }) => {
           <Button
             type="button"
             title="Calculate Rate"
-            variant="btn_dark_white_outline"
+            variant="btn_dark_black_outline"
             onClick={scrollToCalc}
           />
           <Button

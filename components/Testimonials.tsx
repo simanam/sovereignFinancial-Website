@@ -83,3 +83,77 @@ const Testimonials: React.FC = () => {
 };
 
 export default Testimonials;
+
+// "use client";
+// import React, { useRef, useEffect, useState } from "react";
+// import TestimonialsCard from "./TestimonialsCard";
+
+// // Google Places API
+// const fetchGoogleReviews = async () => {
+//   const placeId = "YOUR_PLACE_ID"; // Replace with your Google Place ID
+//   const apiKey = "YOUR_API_KEY"; // Replace with your Google API Key
+//   const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}&fields=reviews`;
+
+//   const response = await fetch(url);
+//   const data = await response.json();
+//   return data.result.reviews;
+// };
+
+// const Testimonials: React.FC = () => {
+//   const containerRef = useRef<HTMLDivElement>(null);
+//   const [googleReviews, setGoogleReviews] = useState<any[]>([]); // For storing Google Reviews
+
+//   useEffect(() => {
+//     // Fetch Google reviews when component mounts
+//     const fetchReviews = async () => {
+//       const reviews = await fetchGoogleReviews();
+//       setGoogleReviews(reviews || []);
+//     };
+
+//     fetchReviews();
+
+//     const scrollContainer = containerRef.current;
+//     if (!scrollContainer) return;
+
+//     let isScrolling: boolean;
+//     const startScroll = () => {
+//       isScrolling = true;
+//       const step = () => {
+//         if (!isScrolling || !scrollContainer) return;
+//         scrollContainer.scrollLeft += 1; // Adjust speed if necessary
+//         if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+//           scrollContainer.scrollLeft = 0;
+//         }
+//         requestAnimationFrame(step);
+//       };
+//       requestAnimationFrame(step);
+//     };
+
+//     startScroll();
+//     return () => {
+//       isScrolling = false;
+//     };
+//   }, []);
+
+//   return (
+//     <div className=" flex flex-col gap-20 py-10 pb-24 md:gap-20 lg:py-10">
+//       <h2 className="font-pt-serif font-bold text-3xl lg:text-4xl  text-gray-100 text-center ">
+//         Hear from Our Satisfied Clients
+//       </h2>
+//       <div
+//         ref={containerRef}
+//         className="flex overflow-x-auto hide-scrollbar"
+//       >
+//         {googleReviews.map((review, index) => (
+//           <TestimonialsCard
+//             key={index}
+//             author={review.author_name}
+//             content={review.text}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Testimonials;
