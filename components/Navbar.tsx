@@ -58,18 +58,24 @@ const Navbar = () => {
         >
           Contact
         </Link>
+        {/* <Link
+          href="https://sovereign.mymortgage-online.com/loan-app/?siteId=6212512032&workFlowId=195664"
+          className="text-gray-100 font-semibold  hover:text-blue-80 transition-colors"
+        >
+          Apply Now
+        </Link> */}
 
         <Button
           type="button"
           title="Apply Now"
-          variant="btn_yellow"
+          variant="btn_dark_black_outline"
           onClick={navigateToApply}
         />
         <Button
           type="button"
           icon="/phone-solid.svg"
           title="(559) 770-0704"
-          variant="btn_dark_black_outline"
+          variant="btn_yellow"
           onClick={navigateToContact}
         />
       </div>
