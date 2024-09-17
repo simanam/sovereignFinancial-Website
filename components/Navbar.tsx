@@ -12,6 +12,12 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const navigateToApply = () => {
+    window.location.href =
+      "https://sovereign.mymortgage-online.com/loan-app/?siteId=6212512032&workFlowId=195664";
+    setIsMenuOpen(false);
+  };
+
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
@@ -52,11 +58,18 @@ const Navbar = () => {
         >
           Contact
         </Link>
+
+        <Button
+          type="button"
+          title="Apply Now"
+          variant="btn_yellow"
+          onClick={navigateToApply}
+        />
         <Button
           type="button"
           icon="/phone-solid.svg"
           title="(559) 770-0704"
-          variant="btn_yellow"
+          variant="btn_dark_black_outline"
           onClick={navigateToContact}
         />
       </div>
@@ -99,6 +112,12 @@ const Navbar = () => {
           >
             Contact
           </Link>
+          <button
+            className="w-full text-left px-4 py-2 text-gray-10 hover:bg-gray-700"
+            onClick={navigateToApply}
+          >
+            Apply Now
+          </button>
           <button
             className="w-full text-left px-4 py-2 text-gray-10 hover:bg-gray-700"
             onClick={navigateToContact}
