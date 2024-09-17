@@ -36,7 +36,6 @@ const teamMembers = [
     aboutMe:
       "Amarjeet Singh is a dedicated Loan Officer at Sovereign Financial with four years of experience in the loan industry. Committed to helping families achieve their dream of becoming homeowners, Amarjeet leverages extensive knowledge and expertise to provide personalized and effective mortgage solutions. With a Bachelor’s degree in Business Finance, Amarjeet combines a strong foundation of financial principles with practical experience. He works closely with clients to navigate the complexities of the loan process, ensuring each client finds the best mortgage options tailored to their needs. Whether working with first-time homebuyers or seasoned investors, Amarjeet’s clients benefit from his attention to detail, thorough understanding of financial products, and unwavering commitment to their success. Outside of work, Amarjeet enjoys hanging out with friends, traveling, and hiking, which helps him maintain a well-rounded and balanced approach to life and work.",
   },
-  ,
 ];
 
 const AboutPage = () => {
