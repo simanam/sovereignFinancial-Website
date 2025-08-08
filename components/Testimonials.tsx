@@ -2,6 +2,32 @@
 import React, { useRef, useEffect, useState } from "react";
 import TestimonialsCard from "./TestimonialsCard";
 
+// TypeScript Interfaces
+interface GoogleReview {
+  author_name: string;
+  text: string;
+  profile_photo_url?: string;
+  rating: number;
+  relative_time_description: string;
+  time: number;
+}
+
+interface GoogleReviewsResponse {
+  reviews: GoogleReview[];
+  next_page_token?: string;
+}
+
+interface GoogleReviewsCTAProps {
+  googleBusinessUrl: string;
+}
+
+// Extend Window interface for scroll timeout
+declare global {
+  interface Window {
+    scrollTimeout?: NodeJS.Timeout;
+  }
+}
+
 // Loading Card Component
 const LoadingCard: React.FC = () => {
   return (
@@ -32,7 +58,7 @@ const LoadingCard: React.FC = () => {
 };
 
 // Google Reviews CTA Card Component
-const GoogleReviewsCTACard: React.FC<{ googleBusinessUrl: string }> = ({
+const GoogleReviewsCTACard: React.FC<GoogleReviewsCTAProps> = ({
   googleBusinessUrl,
 }) => {
   return (
@@ -40,7 +66,7 @@ const GoogleReviewsCTACard: React.FC<{ googleBusinessUrl: string }> = ({
       <div className="text-center">
         {/* Google Icon */}
         <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-md">
-          <svg className="w-8 h-8" viewBox="0 0 24 24">
+          <svg className="w-8 h-8" viewBox="0 0 24 24" aria-label="Google Logo">
             <path
               fill="#4285F4"
               d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -75,6 +101,7 @@ const GoogleReviewsCTACard: React.FC<{ googleBusinessUrl: string }> = ({
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg hover:scale-105"
+          aria-label="View all reviews on Google Business"
         >
           <span>View on Google</span>
           <svg
@@ -82,6 +109,7 @@ const GoogleReviewsCTACard: React.FC<{ googleBusinessUrl: string }> = ({
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -96,26 +124,38 @@ const GoogleReviewsCTACard: React.FC<{ googleBusinessUrl: string }> = ({
   );
 };
 
-// Simple API call - no pagination needed
-const fetchGoogleReviews = async () => {
-  const placeId = "ChIJhY1lTfxplIAR7_nVY4ypUU0";
-  const response = await fetch(`/api/google-reviews?placeId=${placeId}`);
-  const data = await response.json();
-  return data.reviews || [];
+// API call with proper typing
+const fetchGoogleReviews = async (): Promise<GoogleReview[]> => {
+  try {
+    const placeId = "ChIJhY1lTfxplIAR7_nVY4ypUU0";
+    const response = await fetch(`/api/google-reviews?placeId=${placeId}`);
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch reviews: ${response.status} ${response.statusText}`
+      );
+    }
+
+    const data: GoogleReviewsResponse = await response.json();
+    return data.reviews || [];
+  } catch (error) {
+    console.error("Error fetching Google reviews:", error);
+    throw error;
+  }
 };
 
 const Testimonials: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [googleReviews, setGoogleReviews] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [autoScroll, setAutoScroll] = useState(true);
+  const [googleReviews, setGoogleReviews] = useState<GoogleReview[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [autoScroll, setAutoScroll] = useState<boolean>(true);
 
-  // Google Business URL
-  const googleBusinessUrl = "https://maps.app.goo.gl/G1DdbxioMAEqtN8Z9";
+  // Google Business URL - could be moved to environment variables
+  const googleBusinessUrl: string = "https://maps.app.goo.gl/G1DdbxioMAEqtN8Z9";
 
   // Load reviews once
   useEffect(() => {
-    const loadReviews = async () => {
+    const loadReviews = async (): Promise<void> => {
       setLoading(true);
       try {
         const reviews = await fetchGoogleReviews();
@@ -126,7 +166,11 @@ const Testimonials: React.FC = () => {
         );
         setGoogleReviews(reviews);
       } catch (error) {
-        console.error("❌ Error loading reviews:", error);
+        console.error(
+          "❌ Error loading reviews:",
+          error instanceof Error ? error.message : error
+        );
+        // Could set an error state here for user feedback
       } finally {
         setLoading(false);
       }
@@ -135,13 +179,14 @@ const Testimonials: React.FC = () => {
     loadReviews();
   }, []);
 
-  // Simple auto-scroll
+  // Simple auto-scroll with proper cleanup
   useEffect(() => {
     const scrollContainer = containerRef.current;
     if (!scrollContainer || !autoScroll || loading) return;
 
     let animationId: number;
-    const scroll = () => {
+
+    const scroll = (): void => {
       if (scrollContainer && autoScroll) {
         scrollContainer.scrollLeft += 1;
 
@@ -173,11 +218,15 @@ const Testimonials: React.FC = () => {
     };
   }, [autoScroll, loading]);
 
-  // Handle manual scroll
-  const handleScroll = () => {
+  // Handle manual scroll with proper typing
+  const handleScroll = (): void => {
     setAutoScroll(false);
-    clearTimeout((window as any).scrollTimeout);
-    (window as any).scrollTimeout = setTimeout(() => {
+
+    if (window.scrollTimeout) {
+      clearTimeout(window.scrollTimeout);
+    }
+
+    window.scrollTimeout = setTimeout(() => {
       setAutoScroll(true);
     }, 4000);
   };
@@ -201,6 +250,8 @@ const Testimonials: React.FC = () => {
         className="flex overflow-x-auto hide-scrollbar gap-4"
         onScroll={handleScroll}
         style={{ scrollBehavior: "smooth" }}
+        role="region"
+        aria-label="Customer testimonials"
       >
         {/* Loading state */}
         {loading &&
@@ -228,7 +279,7 @@ const Testimonials: React.FC = () => {
       </div>
 
       {/* Debug info */}
-      {!loading && (
+      {!loading && googleReviews.length > 0 && (
         <div className="text-center text-xs text-gray-400">
           Showing {googleReviews.length} reviews + Google link
         </div>
