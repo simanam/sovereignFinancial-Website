@@ -88,7 +88,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
               name="zipCode"
               control={control}
               rules={{ required: "Zip Code is required" }}
-              defaultValue=""
+              defaultValue={undefined}
               render={({ field, fieldState: { error } }) => (
                 <>
                   <input
@@ -120,7 +120,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
               name="purchasePrice"
               control={control}
               rules={{ required: "Purchase Price is required" }}
-              defaultValue=""
+              defaultValue={undefined}
               render={({ field, fieldState: { error } }) => (
                 <>
                   <input
@@ -191,7 +191,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
               name="creditScore"
               control={control}
               rules={{ required: "Credit Score is required" }}
-              defaultValue=""
+              defaultValue={undefined}
               render={({ field, fieldState: { error } }) => (
                 <>
                   <select
@@ -229,7 +229,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
               name="loanTerm"
               control={control}
               rules={{ required: "Loan Term is required" }}
-              defaultValue=""
+              defaultValue={undefined}
               render={({ field, fieldState: { error } }) => (
                 <>
                   <select
@@ -265,7 +265,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
               name="name"
               control={control}
               rules={{ required: "Name is required" }}
-              defaultValue=""
+              defaultValue={undefined}
               render={({ field, fieldState: { error } }) => (
                 <>
                   <input
@@ -293,7 +293,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
             <Controller
               name="email"
               control={control}
-              defaultValue=""
+              defaultValue={undefined}
               render={({ field }) => (
                 <input
                   type="email"
@@ -315,7 +315,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
               name="phoneNumber"
               control={control}
               rules={{ required: "Phone Number is required" }}
-              defaultValue=""
+              defaultValue={undefined}
               render={({ field, fieldState: { error } }) => (
                 <>
                   <input
