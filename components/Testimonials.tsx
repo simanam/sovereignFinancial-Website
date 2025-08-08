@@ -266,7 +266,12 @@ const Testimonials: React.FC = () => {
               key={`review-${index}-${review.author_name}`}
               author={review.author_name}
               content={review.text}
-              profilePhoto={review.profile_photo_url}
+              profilePhoto={
+                review.profile_photo_url ||
+                `https://ui-avatars.com/api/?name=${encodeURIComponent(
+                  review.author_name
+                )}&background=random`
+              }
               rating={review.rating}
               relativeTime={review.relative_time_description}
             />
