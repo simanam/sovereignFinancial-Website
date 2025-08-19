@@ -18,13 +18,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6 m-4 hover:bg-blue-20">
       <div className="flex items-start space-x-4">
-        <div className="p-3 rounded-full bg-blue-500 text-white">
+        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-500 text-white flex-shrink-0">
           <Image
             src={service.icon}
             alt="Service Icon"
-            width={50}
-            height={50}
-            className="w-20 h-10"
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain"
           />
         </div>
         <div>

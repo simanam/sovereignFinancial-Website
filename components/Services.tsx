@@ -43,6 +43,14 @@ const services: Service[] = [
     icon: "/cashout.svg", // Replace with your actual icon path
     link: "/services/home-equity-cash-outs",
   },
+  {
+    id: 6,
+    title: "Equipment Financing",
+    description:
+      "Financing options for business equipment, vehicles, and machinery.",
+    icon: "/truck-full.svg", // Replace with your actual icon path
+    link: "/services/equipment-financing",
+  },
 ];
 
 const Services = () => {

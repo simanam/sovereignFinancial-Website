@@ -75,6 +75,7 @@ const Footer = () => {
                 <li className="mb-1">Mortgage </li>
                 <li className="mb-1">Refinance </li>
                 <li className="mb-1">Commercial/Investor Financing </li>
+                <li className="mb-1">Equipment Financing </li>
               </ul>
             </div>
             {/* Column 3 */}
